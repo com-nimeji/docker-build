@@ -1,6 +1,6 @@
 name: 'gradle-build'
 inputs:
-  img-name:
+  image-name:
     required: true
   github-token:
     required: true
