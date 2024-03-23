@@ -2,7 +2,9 @@ name: 'docker-build'
 inputs:
   image-name:
     required: true
-  github-token:
+  username:
+    required: true
+  password:
     required: true
 runs:
   using: "composite"
@@ -20,4 +22,4 @@ runs:
         with:
           context: .
           push: true
-          tags: registry.nimeji.com/${{ github.repository_owner }}/${{ inputs.image-name }}:latest
+          tags: ${{ inputs.image-name }}:latest
