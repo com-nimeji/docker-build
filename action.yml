@@ -13,8 +13,8 @@ runs:
         uses: docker/login-action@v3
         with:
           registry: registry.registry
-          username: ${{ env.registry_user }}
-          password: ${{ env.registry_password }}
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
