@@ -1,4 +1,4 @@
-name: 'gradle-build'
+name: 'docker-build'
 inputs:
   image-name:
     required: true
@@ -12,12 +12,10 @@ runs:
       - name: Login to ghcr.io
         uses: docker/login-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ inputs.github-token }}
+          registry: registry.registry
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}:latest
+          tags: registry.nimeji.com/${{ github.repository_owner }}/${{ inputs.image-name }}:latest
